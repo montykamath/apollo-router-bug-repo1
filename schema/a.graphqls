@@ -1,0 +1,21 @@
+# A
+
+extend schema @link(url: "https://specs.apollo.dev/federation/v2.9", import: ["@key" "@shareable"])
+
+type SimplePost implements PostInterface1 & PostInterface2 {
+  id: ID!
+  awards: [Award!]
+}
+
+type Award @shareable {
+  id: ID!
+  name: String
+}
+
+interface PostInterface1 {
+  awards: [Award!]
+}
+
+interface PostInterface2 {
+  id: ID!
+}

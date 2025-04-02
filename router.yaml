@@ -1,0 +1,13 @@
+telemetry:
+  exporters:
+    logging:
+      stdout:
+        format:
+          json:
+            display_trace_id: true
+
+include_subgraph_errors:
+  all: true
+
+health_check:
+  enabled: false

@@ -1,0 +1,27 @@
+# B
+extend schema @link(url: "https://specs.apollo.dev/federation/v2.9", import: ["@shareable"])
+
+type Query {
+  posts: [PostInterface1!]
+}
+
+interface PostInterface1 {
+  awards: [Award!]
+  name: String
+}
+
+interface PostInterface2 {
+  awards: [Award!]
+  id: ID!
+}
+
+type CompactPost implements PostInterface1 & PostInterface2 {
+    awards: [Award!]
+    name: String
+    id: ID!
+}
+
+type Award @shareable {
+  id: ID!
+  name: String
+}

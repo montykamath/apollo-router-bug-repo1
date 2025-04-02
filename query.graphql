@@ -1,0 +1,25 @@
+query Broken($full: Boolean = true) {
+  posts {
+    ...compactView
+    ...fullView @include(if: $full)
+  }
+}
+
+query Works {
+  posts {
+    ...compactView
+    ...fullView
+  }
+}
+
+fragment compactView on Compact {
+  post {
+    media(maxWidth: 216)
+  }
+}
+
+fragment fullView on Full {
+  post {
+    media(maxWidth: 640)
+  }
+}
